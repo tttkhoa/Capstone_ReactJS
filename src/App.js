@@ -1,8 +1,8 @@
-import './App.css';
-import Header from './components/Header/header';
-import Carousel from './components/Carousel/carousel';
-import ListMovie from './components/ListMovie/list-mosvie';
-import Footer from "./components/Footer/footer";
+import './App.scss'
+import Header from './pages/header';
+import Carousel from './pages/carousel';
+import ListMovie from './pages/list-mosvie';
+import Footer from './pages/footer';
 
 function App() {
   return (
