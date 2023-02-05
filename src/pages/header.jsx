@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "../img/logo.png";
 
 export default class Header extends Component {
   render() {
@@ -73,7 +72,7 @@ export default class Header extends Component {
 
           <div id="header-middle">
             <nav className="navbar navbar-expand-lg navbar-dark container">
-              <img src={logo} alt="logo" className="mr-2" height={30} />
+              <img src="/assets/images/logo.png" alt="logo" className="mr-2" height={30} />
               <button
                 className="navbar-toggler"
                 type="button"
