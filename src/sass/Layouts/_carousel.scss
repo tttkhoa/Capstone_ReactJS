@@ -1,0 +1,20 @@
+.carousel {
+  &-indicators {
+    li {
+      width: 8px;
+      height: 8px;
+      margin: 1px;
+      background-color: rgba(0, 0, 0, 0);
+      border: 1px solid #fff;
+      border-radius: 10px;
+    }
+    .active {
+      width: 8px;
+      height: 8px;
+      margin: 1px;
+      background-color: #f26b38;
+      border: 1px solid #f26b38;
+      border-radius: 50%;
+    }
+}
+}
