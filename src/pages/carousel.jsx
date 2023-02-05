@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import img1 from "../img/main-banner-01.jpg";
-import img2 from "../img/main-banner-02.jpg";
 
 export default class Carousel extends Component {
   render() {
@@ -20,10 +18,10 @@ export default class Carousel extends Component {
         </ol>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={img1} className="d-block w-100" alt="..." />
+            <img src="assets/images/main-banner-01.jpg"  className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src={img2} className="d-block w-100" alt="..." />
+            <img src="assets/images/main-banner-02.jpg" className="d-block w-100" alt="..." />
           </div>
         </div>
         <a
