@@ -1,0 +1,70 @@
+.list-movie {
+  display: flex;
+  .movie {
+    background-color: #ccc;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    &:hover {
+      .movie__image {
+        transform: scale(1.2);
+      }
+      .movie__info {
+        opacity: 1;
+      }
+    }
+    &__image {
+      aspect-ratio: 65/100;
+    }
+    .movie__image {
+      transition: 0.25s all;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    .movie__name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #000;
+      color: #fff;
+      height: 50px;
+      box-sizing: border-box;
+      padding: 8px 0;
+      h5 {
+        font-size: 16px;
+        text-align: center;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        display: -webkit-box;
+        text-transform: uppercase;
+      }
+    }
+    &__info {
+      a {
+        color: #fff;
+        text-decoration: underline;
+      }
+      position: absolute;
+      background-color: rgba($primary-color, 0.75);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: #fff;
+      padding: 12px;
+      opacity: 0;
+      transition: 0.25s all;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
