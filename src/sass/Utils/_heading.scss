@@ -1,0 +1,22 @@
+.heading {
+  color: $secondary-color;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 25%;
+    background-color: $secondary-color;
+    bottom: -2px;
+    border-radius: 4px;
+    z-index: 99;
+  }
+  img {
+    height: 40px;
+    margin-right: 12px;
+  }
+}

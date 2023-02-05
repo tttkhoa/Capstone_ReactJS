@@ -1,8 +1,8 @@
-import './App.scss'
-import Header from './pages/header';
-import Carousel from './pages/carousel';
-import ListMovie from './pages/list-mosvie';
-import Footer from './pages/footer';
+import "./App.scss";
+import Header from "./pages/header";
+import Carousel from "./pages/carousel";
+import ListMovie from "./pages/list-movie";
+import Footer from "./pages/footer";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Carousel />
       <ListMovie />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

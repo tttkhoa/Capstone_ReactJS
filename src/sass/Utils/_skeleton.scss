@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 65/100;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  padding: 1rem 2rem;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f2f2f2 38%,
+    #f2f2f2 40%,
+    #e5e5e5 48%
+  );
+  background-size: 300%;
+  background-position: 100% 0;
+  animation: anim 1.5s infinite;
+}
+@keyframes anim {
+  to {
+    background-position: -100% 0;
+  }
+}
