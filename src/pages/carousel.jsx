@@ -6,7 +6,7 @@ export default class Carousel extends Component {
       <div
         id="carouselExampleIndicators"
         className="carousel slide"
-        data-ride=""
+        data-ride="carousel"
       >
         <ol className="carousel-indicators">
           <li
@@ -17,10 +17,10 @@ export default class Carousel extends Component {
           <li data-target="#carouselExampleIndicators" data-slide-to={1} />
         </ol>
         <div className="carousel-inner">
-          <div className="carousel-item active">
+          <div className="carousel-item active " data-interval="1000">
             <img src="assets/images/main-banner-01.jpg"  className="d-block w-100" alt="..." />
           </div>
-          <div className="carousel-item">
+          <div className="carousel-item" data-interval="1000">
             <img src="assets/images/main-banner-02.jpg" className="d-block w-100" alt="..." />
           </div>
         </div>

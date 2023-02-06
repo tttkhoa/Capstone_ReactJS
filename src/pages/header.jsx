@@ -7,7 +7,7 @@ export default class Header extends Component {
         <div className="header-main font-inter">
           <div id="header-top">
             <div className="container">
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between ">
                 <div className="header-left">
                   <div className="header-contact">
                     <ul>
@@ -72,7 +72,12 @@ export default class Header extends Component {
 
           <div id="header-middle">
             <nav className="navbar navbar-expand-lg navbar-dark container">
-              <img src="/assets/images/logo.png" alt="logo" className="mr-2" height={30} />
+              <img
+                src="/assets/images/logo.png"
+                alt="logo"
+                className="mr-2"
+                height={30}
+              />
               <button
                 className="navbar-toggler"
                 type="button"
@@ -161,9 +166,33 @@ export default class Header extends Component {
                       </a>
                     </div>
                   </li>
+                  <div id="header-middle-right">
+                    <div className="header-bottom-inner d-flex justify-content-between">
+                      <div className="header-bottom-left ">
+                        <div className="header-search">
+                            <div>
+                              <div className="d-flex h-100">
+                                <div className="searchbar">
+                                  <input
+                                    className="search_input"
+                                    type="text"
+                                    name
+                                    placeholder="Tìm kiếm phim hoặc diễn viên"
+                                  />
+                                  <a href="#" className="search_icon">
+                                    <i className="fas fa-search" />
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div className="header-bottom-right"></div>
+                    </div>
+                  </div>
                 </ul>
               </div>
-              <div className="navbar-brand mr-0">
+              {/* <div className="navbar-brand mr-0">
               <div className="header-bottom-inner d-flex justify-content-between">
                 <div className="header-bottom-left ">
                   <div className="header-search">
@@ -188,7 +217,7 @@ export default class Header extends Component {
                 </div>
                 <div className="header-bottom-right"></div>
               </div>
-              </div>
+              </div> */}
             </nav>
           </div>
         </div>

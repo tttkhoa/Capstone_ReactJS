@@ -103,7 +103,7 @@ header {
 
     .dropdown {
       &-menu {
-        margin: 1.925rem 0 0;
+        margin: 1.725rem 0 0;
         background: rgba(3, 43, 56, 0.8);
         border: none;
         border-radius: 0 0 5px 5px;
@@ -117,6 +117,11 @@ header {
           color: #f3b900;
         }
       }
+    }
+
+    &-right {
+      position: relative;
+      left: 155px;
     }
 
     .searchbar {
@@ -170,5 +175,113 @@ header {
 
   #header-bottom {
     padding: 10px;
+  }
+}
+
+//responsive
+@include responsive("extra-large") {
+  header {
+    #header-middle {
+      .dropdown {
+        &-menu {
+          margin: 1.225rem 0 0;
+        }
+      }
+    }
+    #header-middle-right {
+      left: 70px;
+    }
+  }
+}
+
+@include responsive("large") {
+  header {
+    #header-middle {
+      .nav {
+        &-link {
+          font-size: 15px;
+        }
+      }
+      .dropdown {
+        &-menu {
+          margin: 0;
+        }
+      }
+      &-right {
+        left: 0px;
+      }
+    }
+  }
+}
+
+@include responsive("medium") {
+  header {
+    #header-top {
+      li,
+      .account {
+        font-size: 10.5px;
+        margin: 0 8px 0 0;
+      }
+
+      .account {
+        &-submenu {
+          width: 280px;
+        }
+      }
+    }
+
+    #header-middle {
+      .searchbar {
+        height: 40px;
+        padding: 0;
+      }
+    }
+  }
+}
+
+@include responsive("small-down") {
+  header {
+    #header-top {
+      li,
+      .account {
+        font-size: 7.4px;
+        margin: 0 5px 0 0;
+      }
+
+      .account {
+        &-submenu {
+          text-align: right;
+          width: 192px;
+          font-size: 10px;
+          padding: 10px 17px;
+          li {
+            margin: 0 1.2px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive("extra-small") {
+  header {
+    #header-top {
+      li,
+      .account {
+        font-size: 6px;
+        margin: 0 3px 0 0;
+      }
+    }
+    #header-middle {
+      .searchbar > .search_input {
+        width: 215px;
+      }
+
+      .searchbar{
+        .search_input::placeholder{
+          font-size: 12px;
+        }
+      }
+    }
   }
 }
