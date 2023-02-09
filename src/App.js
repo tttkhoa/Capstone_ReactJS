@@ -1,17 +1,17 @@
 import "./App.scss";
-import Header from "./pages/header";
-import Carousel from "./pages/carousel";
-import ListMovie from "./pages/list-movie";
-import Footer from "./pages/footer";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import { Suspense } from "react";
+import renderRoutes from "./routes";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Carousel />
-      <ListMovie />
-      <Footer />
-    </div>
+    <Suspense>
+      <BrowserRouter>
+      <Routes>
+        {renderRoutes()};
+      </Routes>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 

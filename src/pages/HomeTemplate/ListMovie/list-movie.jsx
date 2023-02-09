@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Movie from "./Movie";
+import Movie from "./Movie/Movie";
 import axios from "axios";
-import Heading from "../Components/Heading";
-import Skeleton from "../Components/Skeleton";
+import Heading from "../../../Components/Heading";
+import Skeleton from "../../../Components/Skeleton";
 export default class ListMovie extends Component {
   constructor(props) {
     super(props);
