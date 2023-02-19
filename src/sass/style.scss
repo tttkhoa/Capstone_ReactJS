@@ -1,0 +1,17 @@
+//Helpers
+@import "./Helpers/mixin";
+@import "./Helpers/variables";
+
+//Base
+@import "./Base/reset";
+
+//Components
+@import ".//Utils/heading";
+@import ".//Utils//skeleton";
+
+//Layouts
+@import "./Layouts/header";
+@import "./Layouts/carousel";
+@import "./Layouts/list-movie";
+@import "./Layouts/footer";
+@import "./Layouts/theatre"

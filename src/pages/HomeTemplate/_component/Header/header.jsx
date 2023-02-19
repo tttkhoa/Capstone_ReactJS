@@ -4,7 +4,7 @@ export default class Header extends Component {
   render() {
     return (
       <header>
-        <div className="header-main font-inter">
+        <div className="header-main font-inter ">
           <div id="header-top">
             <div className="container">
               <div className="d-flex justify-content-between ">
@@ -17,7 +17,7 @@ export default class Header extends Component {
                       </li>
                       <li className="email m-0">
                         <i className="fa-regular fa-envelope"></i>
-                        <a href="#">demo@company.com</a>
+                        <a href="#" >demo@company.com</a>
                       </li>
                     </ul>
                   </div>
@@ -170,21 +170,21 @@ export default class Header extends Component {
                     <div className="header-bottom-inner d-flex justify-content-between">
                       <div className="header-bottom-left ">
                         <div className="header-search">
-                            <div>
-                              <div className="d-flex h-100">
-                                <div className="searchbar">
-                                  <input
-                                    className="search_input"
-                                    type="text"
-                                    name
-                                    placeholder="Tìm kiếm phim hoặc diễn viên"
-                                  />
-                                  <a href="#" className="search_icon">
-                                    <i className="fas fa-search" />
-                                  </a>
-                                </div>
+                          <div>
+                            <div className="d-flex h-100">
+                              <div className="searchbar">
+                                <input
+                                  className="search_input"
+                                  type="text"
+                                  name
+                                  placeholder="Tìm kiếm phim hoặc diễn viên"
+                                />
+                                <a href="#" className="search_icon">
+                                  <i className="fas fa-search" />
+                                </a>
                               </div>
                             </div>
+                          </div>
                         </div>
                       </div>
                       <div className="header-bottom-right"></div>
@@ -192,32 +192,6 @@ export default class Header extends Component {
                   </div>
                 </ul>
               </div>
-              {/* <div className="navbar-brand mr-0">
-              <div className="header-bottom-inner d-flex justify-content-between">
-                <div className="header-bottom-left ">
-                  <div className="header-search">
-                    <div>
-                      <div>
-                        <div className="d-flex h-100">
-                          <div className="searchbar">
-                            <input
-                              className="search_input"
-                              type="text"
-                              name
-                              placeholder="Tìm kiếm phim hoặc diễn viên"
-                            />
-                            <a href="#" className="search_icon">
-                              <i className="fas fa-search" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="header-bottom-right"></div>
-              </div>
-              </div> */}
             </nav>
           </div>
         </div>
