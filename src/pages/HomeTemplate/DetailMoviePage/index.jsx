@@ -23,12 +23,19 @@ export default function DetailMoviePage() {
     return data?.heThongRapChieu.map((cinema, i) => {
       const id = String(i + 1);
       return {
-        label: <img src={cinema.logo} width={50} className="rounded-circle"></img>,
+        label: (
+          <img
+            src={cinema.logo}
+            width={50}
+            alt="..."
+            className="rounded-circle"
+          ></img>
+        ),
         key: id,
         children: `Content of Tab ${id}`,
       };
-    })
-  }
+    });
+  };
 
   return (
     <div style={{ minHeight: "100vh" }} className="container mt-5">
@@ -37,18 +44,16 @@ export default function DetailMoviePage() {
           <img src={data?.hinhAnh} style={{ width: "300px" }} alt="" />
         </div>
         <div className="col-8">
-          <p style={{fontSize:"15px"}}>Ngày chiếu: {moment(data?.ngayKhoiChieu).format('DD/MM/YYYY')}</p>
+          <p style={{ fontSize: "15px" }}>
+            Ngày chiếu: {moment(data?.ngayKhoiChieu).format("DD/MM/YYYY")}
+          </p>
           <h3>{data?.tenPhim}</h3>
           <p>{data?.moTa}</p>
         </div>
       </div>
 
       <div className="mt-5">
-        <Tabs
-          tabPosition={tabPosition}
-          items={renderCinema()}
-        />
-
+        <Tabs tabPosition={tabPosition} items={renderCinema()} />
       </div>
     </div>
   );

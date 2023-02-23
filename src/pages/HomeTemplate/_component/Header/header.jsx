@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
@@ -17,7 +18,7 @@ export default class Header extends Component {
                       </li>
                       <li className="email m-0">
                         <i className="fa-regular fa-envelope"></i>
-                        <a href="#" >demo@company.com</a>
+                        <a href="#">demo@company.com</a>
                       </li>
                     </ul>
                   </div>
@@ -46,19 +47,19 @@ export default class Header extends Component {
                         className="account-checkbox"
                       />
                       <div className="account-dropdown position-relative">
-                        <div className="account-submenu position-absolute">
+                        <div className="account-submenu position-absolute z-index-[]">
                           <ul>
                             <li>
-                              <a href="">Cart</a>{" "}
+                              <NavLink to="">Cart</NavLink>
                             </li>
                             <li>
-                              <a href="">Checkout</a>{" "}
+                              <NavLink to="">Checkout</NavLink>
                             </li>
                             <li>
-                              <a href="">My account</a>{" "}
+                              <NavLink to="">My account</NavLink>
                             </li>
                             <li>
-                              <a href="">User Login</a>{" "}
+                              <NavLink to="login">User Login</NavLink>
                             </li>
                           </ul>
                         </div>
@@ -72,12 +73,14 @@ export default class Header extends Component {
 
           <div id="header-middle">
             <nav className="navbar navbar-expand-lg navbar-dark container">
-              <img
-                src="/assets/images/logo.png"
-                alt="logo"
-                className="mr-2"
-                height={30}
-              />
+              <NavLink to="/">
+                <img
+                  src="/assets/images/logo.png"
+                  alt="logo"
+                  className="mr-2 img-fluid"
+                  style={{ width: "33%" }}
+                />
+              </NavLink>
               <button
                 className="navbar-toggler"
                 type="button"
