@@ -1,49 +1,24 @@
-import React, { Component } from "react";
+import React,{useEffect} from "react";
+import {useSelector, useDispatch } from "react-redux";
 import Movie from "./Movie/Movie";
-import axios from "axios";
+import { actFetchListMovie } from "./duck/action";
 import Heading from "../../../Components/Heading";
 import Skeleton from "../../../Components/Skeleton";
-export default class ListMovie extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],
-      error: [],
-      loading: true,
-    };
-  }
-  componentDidMount() {
-    axios({
-      url: "https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01",
-      method: "get",
-      headers: {
-        accept: "application/json",
-        TokenCyberSoft:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAzOSIsIkhldEhhblN0cmluZyI6IjI0LzA3LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY5MDE1NjgwMDAwMCIsIm5iZiI6MTY2MTcwNjAwMCwiZXhwIjoxNjkwMzA0NDAwfQ.v3QBEWqiclIwpSJXtVil8Lu30xYH1J5FT82rQrUyv1c",
-      },
-    })
-      .then((result) =>
-        this.setState({
-          ...this.state,
-          loading: false,
-          data: result.data.content,
-        })
-      )
-      .catch((error) =>
-        this.setState({
-          ...this.state,
-          loading: false,
-          error,
-        })
-      );
-  }
 
-  renderMovieList = () => {
-    if (this.state.data.length !== 0) {
-      return this.state.data.map((movie) => {
+export default function ListMovie() {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.listMovieReducer.data)
+  useEffect(() => {
+    dispatch(actFetchListMovie())
+  },[])
+    
+
+  const renderMovieList = () => {
+    if (data) {
+      return data.map((movie) => {
         return (
           <div key={movie.maPhim} className="col-6 col-md-3 mt-3">
-            <Movie url={movie.hinhAnh} name={movie.tenPhim} />
+            <Movie movie={movie} />
           </div>
         );
       });
@@ -60,14 +35,13 @@ export default class ListMovie extends Component {
     }
   };
 
-  render() {
-    return (
-      <div className="container">
+  return (
+    <div className="container">
         <Heading heading="Phim hot nhất" />
         <div className="list-movie">
-          <div className="row">{this.renderMovieList()}</div>
+          <div className="row">{renderMovieList()}</div>
         </div>
       </div>
-    );
-  }
+  )
 }
+

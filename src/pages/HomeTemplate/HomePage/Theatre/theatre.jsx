@@ -78,7 +78,6 @@ export default function Theatre() {
     });
   };
 
-  console.log(data);
 
   return (
     <div className="container">

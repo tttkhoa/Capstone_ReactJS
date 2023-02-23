@@ -8,11 +8,9 @@ import Theatre from './Theatre/theatre'
 export default function HomePage() {
   return (
     <div>
-      <Header/>
       <CarouselReactBootstrap/>
       <ListMovie/>
       <Theatre/>
-      <Footer/>
     </div>
   )
 }
