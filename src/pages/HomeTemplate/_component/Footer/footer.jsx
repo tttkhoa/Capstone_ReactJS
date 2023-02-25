@@ -10,7 +10,7 @@ export default class Footer extends Component {
           content: (
             <img
               className="footer__logo"
-              src="./assets/images/logo.png"
+              src={process.env.PUBLIC_URL + "/assets/images/logo.png"}
               alt="logo"
             />
           ),

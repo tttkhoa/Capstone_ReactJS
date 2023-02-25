@@ -1,0 +1,21 @@
+.login {
+  background-color: #fff;
+  color: #fff;
+  border-radius: 4px;
+  &__main {
+    border-radius: 4px;
+    padding: 32px;
+    background-color: #425fec;
+    text-align: center;
+    form {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      color: #fff;
+      margin-top: 24px;
+      label {
+        margin-top: 12px;
+      }
+    }
+  }
+}

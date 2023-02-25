@@ -11,7 +11,7 @@
       .movie__image {
         transform: scale(1.2);
       }
-      .movie__info {
+      .movie__info,.btn_detail {
         opacity: 1;
       }
     }
@@ -65,6 +65,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+    .btn_detail{
+      color: white;
+      opacity: 0;
+      transition: 0.25s all;
+      position: absolute;
+      background-color: #f24646;
+      padding: 11px;
+      z-index: 1;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      border-radius: 0;
     }
   }
 }

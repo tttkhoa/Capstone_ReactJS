@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
     return (
       <header>
-        <div className="header-main font-inter">
+        <div className="header-main font-inter ">
           <div id="header-top">
             <div className="container">
               <div className="d-flex justify-content-between ">
@@ -46,19 +47,19 @@ export default class Header extends Component {
                         className="account-checkbox"
                       />
                       <div className="account-dropdown position-relative">
-                        <div className="account-submenu position-absolute">
+                        <div className="account-submenu position-absolute z-index-[]">
                           <ul>
                             <li>
-                              <a href="">Cart</a>{" "}
+                              <NavLink to="">Cart</NavLink>
                             </li>
                             <li>
-                              <a href="">Checkout</a>{" "}
+                              <NavLink to="">Checkout</NavLink>
                             </li>
                             <li>
-                              <a href="">My account</a>{" "}
+                              <NavLink to="">My account</NavLink>
                             </li>
                             <li>
-                              <a href="">User Login</a>{" "}
+                              <NavLink to="login">User Login</NavLink>
                             </li>
                           </ul>
                         </div>
@@ -72,12 +73,14 @@ export default class Header extends Component {
 
           <div id="header-middle">
             <nav className="navbar navbar-expand-lg navbar-dark container">
-              <img
-                src="/assets/images/logo.png"
-                alt="logo"
-                className="mr-2"
-                height={30}
-              />
+              <NavLink to="/">
+                <img
+                  src="/assets/images/logo.png"
+                  alt="logo"
+                  className="mr-2 img-fluid"
+                  style={{ width: "33%" }}
+                />
+              </NavLink>
               <button
                 className="navbar-toggler"
                 type="button"
@@ -170,21 +173,21 @@ export default class Header extends Component {
                     <div className="header-bottom-inner d-flex justify-content-between">
                       <div className="header-bottom-left ">
                         <div className="header-search">
-                            <div>
-                              <div className="d-flex h-100">
-                                <div className="searchbar">
-                                  <input
-                                    className="search_input"
-                                    type="text"
-                                    name
-                                    placeholder="Tìm kiếm phim hoặc diễn viên"
-                                  />
-                                  <a href="#" className="search_icon">
-                                    <i className="fas fa-search" />
-                                  </a>
-                                </div>
+                          <div>
+                            <div className="d-flex h-100">
+                              <div className="searchbar">
+                                <input
+                                  className="search_input"
+                                  type="text"
+                                  name
+                                  placeholder="Tìm kiếm phim hoặc diễn viên"
+                                />
+                                <a href="#" className="search_icon">
+                                  <i className="fas fa-search" />
+                                </a>
                               </div>
                             </div>
+                          </div>
                         </div>
                       </div>
                       <div className="header-bottom-right"></div>
@@ -192,32 +195,6 @@ export default class Header extends Component {
                   </div>
                 </ul>
               </div>
-              {/* <div className="navbar-brand mr-0">
-              <div className="header-bottom-inner d-flex justify-content-between">
-                <div className="header-bottom-left ">
-                  <div className="header-search">
-                    <div>
-                      <div>
-                        <div className="d-flex h-100">
-                          <div className="searchbar">
-                            <input
-                              className="search_input"
-                              type="text"
-                              name
-                              placeholder="Tìm kiếm phim hoặc diễn viên"
-                            />
-                            <a href="#" className="search_icon">
-                              <i className="fas fa-search" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="header-bottom-right"></div>
-              </div>
-              </div> */}
             </nav>
           </div>
         </div>
