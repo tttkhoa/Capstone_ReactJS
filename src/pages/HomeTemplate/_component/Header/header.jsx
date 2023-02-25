@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
@@ -17,7 +18,7 @@ export default class Header extends Component {
                       </li>
                       <li className="email m-0">
                         <i className="fa-regular fa-envelope"></i>
-                        <a href="#" >demo@company.com</a>
+                        <a href="#">demo@company.com</a>
                       </li>
                     </ul>
                   </div>
@@ -58,7 +59,7 @@ export default class Header extends Component {
                               <a href="">My account</a>{" "}
                             </li>
                             <li>
-                              <a href="">User Login</a>{" "}
+                              <a href="">User Login</a>
                             </li>
                           </ul>
                         </div>
@@ -176,7 +177,6 @@ export default class Header extends Component {
                                 <input
                                   className="search_input"
                                   type="text"
-                                  name
                                   placeholder="Tìm kiếm phim hoặc diễn viên"
                                 />
                                 <a href="#" className="search_icon">
