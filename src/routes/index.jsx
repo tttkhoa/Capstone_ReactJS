@@ -15,9 +15,21 @@ const routes = [
         element: lazy(() => import("../pages/HomeTemplate/AboutPage")),
       },
       {
-        path:"detail/:id",
-        element: lazy(() => import ("../pages/HomeTemplate/DetailMoviePage"))
-      }
+        path: "login",
+        element: lazy(() =>
+          import("../pages/HomeTemplate/LoginPage/LoginPage")
+        ),
+      },
+      {
+        path: "register",
+        element: lazy(() =>
+          import("../pages/HomeTemplate/RegisterPage/RegisterPage")
+        ),
+      },
+      {
+        path: "detail/:id",
+        element: lazy(() => import("../pages/HomeTemplate/DetailMoviePage")),
+      },
     ],
   },
   {
@@ -64,14 +76,16 @@ const renderRoutes = () => {
               <Route
                 key={item.path}
                 path={item.path}
-                element={<item.element/>}
+                element={<item.element />}
               />
             );
           })}
         </Route>
       );
     } else {
-      return <Route key={route.path} path={route.path} element={<route.element />} />
+      return (
+        <Route key={route.path} path={route.path} element={<route.element />} />
+      );
     }
   });
 };

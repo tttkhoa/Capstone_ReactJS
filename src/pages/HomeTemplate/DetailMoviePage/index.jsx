@@ -90,6 +90,7 @@ export default function DetailMoviePage() {
         </div>
       </div>
 
+
       <Tabs
         defaultActiveKey="1"
         centered
@@ -102,6 +103,7 @@ export default function DetailMoviePage() {
           };
         })}
       />
+
     </div>
   );
 }
