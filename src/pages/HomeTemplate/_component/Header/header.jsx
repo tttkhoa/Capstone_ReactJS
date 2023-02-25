@@ -59,7 +59,7 @@ export default class Header extends Component {
                               <NavLink to="">My account</NavLink>
                             </li>
                             <li>
-                              <NavLink to="login">User Login</NavLink>
+                              <a href="">User Login</a>
                             </li>
                           </ul>
                         </div>
@@ -179,7 +179,6 @@ export default class Header extends Component {
                                 <input
                                   className="search_input"
                                   type="text"
-                                  name
                                   placeholder="Tìm kiếm phim hoặc diễn viên"
                                 />
                                 <a href="#" className="search_icon">

@@ -54,6 +54,16 @@ const routes = [
     path: "auth",
     element: lazy(() => import("../pages/AdminTemplate/AuthPage")),
   },
+  {
+    path: "checkout/:id",
+    element: lazy(() => import("../pages/CheckoutTemplate")),
+    nested: [
+      {
+        path: "",
+        element: lazy(() => import("../pages/CheckoutTemplate/CheckoutPage")),
+      },
+    ]
+  }
 ];
 
 const renderRoutes = () => {

@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { actFetchDetailMovie } from "./duck/action";
 import { Space, Tabs } from "antd";
 import { useMediaQuery } from "react-responsive";
 import moment from "moment/moment";
-import "../../../sass/Components/circle.scss";
 
 export default function DetailMoviePage() {
+  const arrTitle = [{ title: "Lịch chiếu" }];
+
   const params = useParams();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.detailMovieReducer.data);
   const smallScreen = useMediaQuery({ query: "(max-width:992px)" });
+  const superSmallScreen = useMediaQuery({query : "(max-width:350px)"})
   const [tabPosition, setTabPosition] = useState("left");
 
   console.log(data);
@@ -24,15 +26,51 @@ export default function DetailMoviePage() {
       const id = String(i + 1);
       return {
         label: (
-          <img
-            src={cinema.logo}
-            width={50}
-            alt="..."
-            className="rounded-circle"
-          ></img>
+          <img src={cinema.logo} width={50} className="rounded-circle"></img>
         ),
         key: id,
-        children: `Content of Tab ${id}`,
+        children: (
+          <div>
+            {cinema.cumRapChieu?.map((cumRap, index) => {
+              return (
+                <div>
+                  <div key={index} className="row mt-3">
+                    <img
+                      className=""
+                      src={cumRap.hinhAnh}
+                      width={70}
+                      height={70}
+                      alt=""
+                    />
+                    <div className="ml-2">
+                      <p
+                        style={{
+                          fontSize: "17px",
+                          fontWeight: "600",
+                          marginBottom: "3px",
+                        }}
+                      >
+                        {cumRap.tenCumRap}
+                      </p>
+                      <p style={{ color: "gray",marginBottom:"0" }}>{cumRap.diaChi}</p>
+                      <div className="row">
+                    {cumRap.lichChieuPhim?.map((lichChieu, index) => {
+                      return (
+                        <NavLink to="/" key={index} className="col-xl-6 col-4">
+                          {moment(lichChieu.ngayChieuGioChieu).format("hh:mmA")}
+                        </NavLink>
+                      );
+                    })}
+                  </div>
+                    </div>
+ 
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+        ),
       };
     });
   };
@@ -40,10 +78,10 @@ export default function DetailMoviePage() {
   return (
     <div style={{ minHeight: "100vh" }} className="container mt-5">
       <div className="row">
-        <div className="col-4">
-          <img src={data?.hinhAnh} style={{ width: "300px" }} alt="" />
+        <div className="col-lg-4 col-md-12 col-12">
+          <img src={data?.hinhAnh} width={superSmallScreen ? "250px" : "300px"} alt="" />
         </div>
-        <div className="col-8">
+        <div className="col-lg-8 col-md-12 col-12">
           <p style={{ fontSize: "15px" }}>
             Ngày chiếu: {moment(data?.ngayKhoiChieu).format("DD/MM/YYYY")}
           </p>
@@ -52,9 +90,20 @@ export default function DetailMoviePage() {
         </div>
       </div>
 
-      <div className="mt-5">
-        <Tabs tabPosition={tabPosition} items={renderCinema()} />
-      </div>
+
+      <Tabs
+        defaultActiveKey="1"
+        centered
+        items={arrTitle.map((item, i) => {
+          const id = String(i + 1);
+          return {
+            label: `${item.title}`,
+            key: id,
+            children: <Tabs tabPosition={smallScreen ? "top" : "left"} items={renderCinema()} />,
+          };
+        })}
+      />
+
     </div>
   );
 }

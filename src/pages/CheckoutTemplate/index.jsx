@@ -1,13 +1,12 @@
 import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Outlet,Navigate } from 'react-router-dom'
 
-export default function AdminTemplate() {
+export default function CheckoutTemplate() {
   if(!localStorage.getItem("UserAdmin")) return <Navigate replace to="/auth"/>
 
   return (
     <div>
-      AdminTemplate
-      <Outlet/>
+        <Outlet/>
     </div>
   )
 }
