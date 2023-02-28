@@ -59,7 +59,7 @@ export default class Header extends Component {
                               <NavLink to="">My account</NavLink>
                             </li>
                             <li>
-                              <a href="">User Login</a>
+                              <NavLink to="login">Login</NavLink>
                             </li>
                           </ul>
                         </div>

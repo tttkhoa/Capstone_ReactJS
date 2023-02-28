@@ -5,6 +5,7 @@ import { actFetchDetailMovie } from "./duck/action";
 import { Space, Tabs } from "antd";
 import { useMediaQuery } from "react-responsive";
 import moment from "moment/moment";
+import Skeleton from "../../../Components/Skeleton";
 
 export default function DetailMoviePage() {
   const arrTitle = [{ title: "Lịch chiếu" }];
@@ -13,7 +14,7 @@ export default function DetailMoviePage() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.detailMovieReducer.data);
   const smallScreen = useMediaQuery({ query: "(max-width:992px)" });
-  const superSmallScreen = useMediaQuery({query : "(max-width:350px)"})
+  const superSmallScreen = useMediaQuery({ query: "(max-width:350px)" });
   const [tabPosition, setTabPosition] = useState("left");
 
   console.log(data);
@@ -52,20 +53,26 @@ export default function DetailMoviePage() {
                       >
                         {cumRap.tenCumRap}
                       </p>
-                      <p style={{ color: "gray",marginBottom:"0" }}>{cumRap.diaChi}</p>
+                      <p style={{ color: "gray", marginBottom: "0" }}>
+                        {cumRap.diaChi}
+                      </p>
                       <div className="row">
-                    {cumRap.lichChieuPhim?.map((lichChieu, index) => {
-                      return (
-                        <NavLink to="/" key={index} className="col-xl-6 col-4">
-                          {moment(lichChieu.ngayChieuGioChieu).format("hh:mmA")}
-                        </NavLink>
-                      );
-                    })}
-                  </div>
+                        {cumRap.lichChieuPhim?.map((lichChieu, index) => {
+                          return (
+                            <NavLink
+                              to="/"
+                              key={index}
+                              className="col-xl-6 col-4"
+                            >
+                              {moment(lichChieu.ngayChieuGioChieu).format(
+                                "hh:mmA"
+                              )}
+                            </NavLink>
+                          );
+                        })}
+                      </div>
                     </div>
- 
                   </div>
-
                 </div>
               );
             })}
@@ -76,13 +83,32 @@ export default function DetailMoviePage() {
   };
 
   return (
-    <div style={{ minHeight: "100vh" }} className="container mt-5">
+    <div
+      style={{ minHeight: "100vh" }}
+      className="container mt-5 text-white text-center"
+    >
       <div className="row">
         <div className="col-lg-4 col-md-12 col-12">
-          <img src={data?.hinhAnh} width={superSmallScreen ? "250px" : "300px"} alt="" />
+          <div
+            className="mx-auto position"
+            style={{
+              width: superSmallScreen ? "250px" : "300px",
+            }}
+          >
+            <img src={data?.hinhAnh} className="img-fluid" alt="" />
+          </div>
+          <div className="d-flex align-items-center justify-content-center">
+            <button
+              onClick={() => (window.location.href = data.trailer)}
+              className="btn btn-success my-4 mx-2"
+            >
+              Xem Trailer
+            </button>
+            <button className="btn btn-success my-4 mx-2">Yêu Thích</button>
+          </div>
         </div>
         <div className="col-lg-8 col-md-12 col-12">
-          <p style={{ fontSize: "15px" }}>
+          <p style={{ fontSize: "15px" }} className="mb-2">
             Ngày chiếu: {moment(data?.ngayKhoiChieu).format("DD/MM/YYYY")}
           </p>
           <h3>{data?.tenPhim}</h3>
@@ -90,20 +116,25 @@ export default function DetailMoviePage() {
         </div>
       </div>
 
-
-      <Tabs
-        defaultActiveKey="1"
-        centered
-        items={arrTitle.map((item, i) => {
-          const id = String(i + 1);
-          return {
-            label: `${item.title}`,
-            key: id,
-            children: <Tabs tabPosition={smallScreen ? "top" : "left"} items={renderCinema()} />,
-          };
-        })}
-      />
-
+      <div className="text-white">
+        <Tabs
+          defaultActiveKey="1"
+          centered
+          items={arrTitle.map((item, i) => {
+            const id = String(i + 1);
+            return {
+              label: `${item.title}`,
+              key: id,
+              children: (
+                <Tabs
+                  tabPosition={smallScreen ? "top" : "left"}
+                  items={renderCinema()}
+                />
+              ),
+            };
+          })}
+        />
+      </div>
     </div>
   );
 }

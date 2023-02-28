@@ -37,6 +37,10 @@ const routes = [
     element: lazy(() => import("../pages/AdminTemplate")),
     nested: [
       {
+        path: "",
+        element: lazy(() => import("../pages/AdminTemplate/DashboardPage")),
+      },
+      {
         path: "dashboard",
         element: lazy(() => import("../pages/AdminTemplate/DashboardPage")),
       },
@@ -62,8 +66,8 @@ const routes = [
         path: "",
         element: lazy(() => import("../pages/CheckoutTemplate/CheckoutPage")),
       },
-    ]
-  }
+    ],
+  },
 ];
 
 const renderRoutes = () => {

@@ -77,10 +77,7 @@ export default class LoginPage extends Component {
                   </NavLink>
                 </p>
                 <p className="text-right mb-3">
-                  <NavLink
-                    to="/forgot-password"
-                    style={{ color: "#fff", fontWeight: "bold" }}
-                  >
+                  <NavLink to="/" style={{ color: "#fff", fontWeight: "bold" }}>
                     Quên mật khẩu?
                   </NavLink>
                 </p>
