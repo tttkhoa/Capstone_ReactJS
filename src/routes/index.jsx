@@ -49,8 +49,32 @@ const routes = [
         element: lazy(() => import("../pages/AdminTemplate/AddUserPage")),
       },
       {
+        path: "add-user/add",
+        element: lazy(() =>
+          import("../pages/AdminTemplate/AddUserPage/AddUser.jsx")
+        ),
+      },
+      {
+        path: "add-user/edit/:id",
+        element: lazy(() =>
+          import("../pages/AdminTemplate/AddUserPage/EditUser.jsx")
+        ),
+      },
+      {
         path: "add-movie",
         element: lazy(() => import("../pages/AdminTemplate/AddMoviePage")),
+      },
+      {
+        path: "add-movie/add",
+        element: lazy(() =>
+          import("../pages/AdminTemplate/AddMoviePage/AddMovie.jsx")
+        ),
+      },
+      {
+        path: "add-movie/edit/:id",
+        element: lazy(() =>
+          import("../pages/AdminTemplate/AddMoviePage/EditMovie.jsx")
+        ),
       },
     ],
   },

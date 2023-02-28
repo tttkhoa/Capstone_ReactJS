@@ -46,17 +46,14 @@ export default class Header extends Component {
               <i className="fas fa-user fa-fw" />
             </a>
             <ul
+              style={{ left: "-200%", top: "75%" }}
+              id="dropdownMenu"
               className="dropdown-menu dropdown-menu-end"
               aria-labelledby="navbarDropdown"
             >
               <li>
                 <a className="dropdown-item" href="#!">
-                  Settings
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#!">
-                  Activity Log
+                  xin chào, user
                 </a>
               </li>
               <li>
@@ -64,7 +61,7 @@ export default class Header extends Component {
               </li>
               <li>
                 <a className="dropdown-item" href="#!">
-                  Logout
+                  Đăng xuất
                 </a>
               </li>
             </ul>

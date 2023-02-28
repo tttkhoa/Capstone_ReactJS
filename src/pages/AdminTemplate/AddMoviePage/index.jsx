@@ -29,6 +29,9 @@ export default function AddMoviePage() {
 
       <form className="text-black rounded py-2 text-center bg-white">
         <h2>Quản lí Phim</h2>
+        <NavLink to="add">
+          <button className="btn btn-success my-3">Thêm mới phim</button>
+        </NavLink>
         <div>
           <table class="table table-striped">
             <thead>

@@ -4,19 +4,21 @@ import { NavLink } from "react-router-dom";
 export default function AddUserPage() {
   const initialState = [
     {
-      maPhim: 1314,
-      hinhAnh: "",
-      tenPhim: "Tàu khựa",
-      moTa: "testdaidaidaiestdaidaidaiestdaidaidaiestdaidaidaiestdaidaidaiestdaidaidaiestdaidaidaiestdaidaidai",
+      maNhom: "GP01",
+      taiKhoan: "tranhieu96",
+      email: "hieuquahay0@gmail.com",
+      soDt: "0338022004",
+      hoTen: "Tran Van Hieu",
     },
     {
-      maPhim: 1314,
-      hinhAnh: "",
-      tenPhim: "Tàu khựa",
-      moTa: "",
+      maNhom: "GP01",
+      taiKhoan: "tranhieu96",
+      email: "hieuquahay0@gmail.com",
+      soDt: "0338022004",
+      hoTen: "Tran Van Hieu",
     },
   ];
-  const [movies, setMovies] = useState(initialState); // => sửa lại thành user
+  const [users, setUsers] = useState(initialState);
 
   return (
     <div className="px-3 py-4">
@@ -28,41 +30,36 @@ export default function AddUserPage() {
       </ol>
 
       <form className="text-black rounded py-2 text-center bg-white">
-        <h2>Quản lí Phim</h2>
+        <h2>Quản lí Người dùng</h2>
+        <NavLink to="add">
+          <button className="btn btn-success my-3">Thêm mới người dùng</button>
+        </NavLink>
         <div>
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Mã Phim</th>
-                <th>Hình Ảnh</th>
-                <th>Tên Phim</th>
-                <th>Mô Tả</th>
+                <th>Mã Nhóm</th>
+                <th>Tài Khoản</th>
+                <th>Email</th>
+                <th>Họ Tên</th>
+                <th>Số ĐT</th>
                 <th>Hành động</th>
               </tr>
             </thead>
             <tbody>
-              {movies.map((movie) => {
+              {users.map((user) => {
                 return (
-                  <tr key={movie.maPhim}>
-                    <td width="10%">{movie.maPhim}</td>
-                    <td width="10%">
-                      <img
-                        width={50}
-                        height={50}
-                        className="rounded"
-                        style={{ objectFit: "cover", objectPosition: "center" }}
-                        src={
-                          movie.hinhAnh ||
-                          "https://file.qdnd.vn/data/images/0/2021/02/25/vuongha/bo%20gia%20comback.png?dpi=150&quality=100&w=575"
-                        }
-                        alt="mota"
-                      />
-                    </td>
+                  <tr key={user.maNhom}>
+                    <td width="10%">{user.maNhom}</td>
+                    <td width="10%">{user.taiKhoan}</td>
                     <td width="20%">
-                      <p>{movie.tenPhim}</p>
+                      <p>{user.email}</p>
                     </td>
-                    <td width="40%" style={{ maxWidth: "5vw" }}>
-                      <p>{movie.moTa}</p>
+                    <td width="30%" style={{ maxWidth: "5vw" }}>
+                      <p>{user.hoTen}</p>
+                    </td>
+                    <td width="10%">
+                      <p>{user.soDt}</p>
                     </td>
                     <td width="20%">
                       <img
