@@ -10,7 +10,7 @@ export default function Movie(props) {
         <div className="movie__name">
           <h5>{props.movie.tenPhim}</h5>
           <NavLink to={`/detail/${props.movie.maPhim}`} className="btn_detail btn">
-          <h5>Chi tiết</h5>
+          <h5>Đặt Vé</h5>
           </NavLink>
         </div>
         <div className="movie__info">

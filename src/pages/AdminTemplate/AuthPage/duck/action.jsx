@@ -7,7 +7,30 @@ export const actAuthLogin = (user,navigate) => {
 
         api.post("QuanLyNguoiDung/DangNhap",user)
         .then((result) => {
-            if (result.data.content.maLoaiNguoiDung === "KhachHang"){
+            // if (result.data.content.maLoaiNguoiDung === "KhachHang"){
+            //     return Promise.reject({
+            //         response:{
+            //             data:{
+            //                 content:"Bạn không có quyền truy cập!"
+            //             }
+            //         }
+            //     })
+            // }
+            if (result.data.content.maLoaiNguoiDung === "QuanTri"){
+                localStorage.setItem("UserAdmin",JSON.stringify(result.data.content))
+
+                dispatch(actAuthSuccess(result.data.content))
+    
+                navigate("/admin/dashboard",{replace:true})
+            } else if (result.data.content.maLoaiNguoiDung === "KhachHang"){
+                localStorage.setItem("User",JSON.stringify(result.data.content))
+
+                dispatch(actAuthSuccess(result.data.content))
+
+                navigate("/",{replace:true})
+                alert("Bạn không có quyền truy cập!")
+            } 
+            else {
                 return Promise.reject({
                     response:{
                         data:{
@@ -18,11 +41,11 @@ export const actAuthLogin = (user,navigate) => {
             }
 
     
-            localStorage.setItem("UserAdmin",JSON.stringify(result.data.content))
+            // localStorage.setItem("UserAdmin",JSON.stringify(result.data.content))
 
-            dispatch(actAuthSuccess(result.data.content))
+            // dispatch(actAuthSuccess(result.data.content))
 
-            navigate("/admin/dashboard",{replace:true})
+            // navigate("/admin/dashboard",{replace:true})
         })
 
 

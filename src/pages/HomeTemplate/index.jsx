@@ -1,6 +1,6 @@
 import Header from "./_component/Header/header";
 import Footer from "./_component/Footer/footer";
-import React from "react";
+import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
 export default function HomeTemplate() {
