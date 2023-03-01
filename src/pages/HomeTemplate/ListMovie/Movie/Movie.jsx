@@ -14,10 +14,9 @@ export default function Movie(props) {
           </NavLink>
         </div>
         <div className="movie__info">
-            <img width="100" src="./assets/images/play.png" alt="play" />
+          <img width="100" src="./assets/images/play.png" alt="play" />
         </div>
-
-      </div>
-  )
+      </NavLink>
+    </div>
+  );
 }
-

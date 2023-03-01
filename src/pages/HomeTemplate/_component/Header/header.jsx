@@ -231,6 +231,38 @@ export default function header() {
                       <i className="fa-regular fa-envelope"></i>
                       <a href="#">demo@company.com</a>
                     </li>
+                    <div className="account m-0">
+                      <i className="fa-regular fa-user"></i>
+                      <label
+                        htmlFor="account-checkbox"
+                        className="account-label"
+                      >
+                        My Account
+                      </label>
+                      <input
+                        type="checkbox"
+                        id="account-checkbox"
+                        className="account-checkbox"
+                      />
+                      <div className="account-dropdown position-relative">
+                        <div className="account-submenu position-absolute z-index-[]">
+                          <ul>
+                            <li>
+                              <NavLink to="">Cart</NavLink>
+                            </li>
+                            <li>
+                              <NavLink to="">Checkout</NavLink>
+                            </li>
+                            <li>
+                              <NavLink to="">My account</NavLink>
+                            </li>
+                            <li>
+                              <NavLink to="login">Login</NavLink>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </ul>
                 </div>
               </div>

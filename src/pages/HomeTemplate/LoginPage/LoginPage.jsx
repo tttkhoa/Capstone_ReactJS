@@ -158,6 +158,25 @@ export default function LoginPage() {
                 type={password ? "text" : "password"}
                 placeholder="Mật khẩu"
               />
+              {/* alert */}
+              {/* <div className="alert alert-danger mt-4">
+                Tài khoản hoặc mật khẩu không chính xác.
+              </div> */}
+              <div className="mt-4">
+                <p className="text-right mb-3">
+                  Chưa có tài khoản,{" "}
+                  <NavLink
+                    to="/register"
+                    style={{ color: "#fff", fontWeight: "bold" }}
+                  >
+                    Đăng kí?
+                  </NavLink>
+                </p>
+                <p className="text-right mb-3">
+                  <NavLink to="/" style={{ color: "#fff", fontWeight: "bold" }}>
+                    Quên mật khẩu?
+                  </NavLink>
+                </p>
               <div
                 onClick={() => setPassword(!password)}
                 className="position-absolute"

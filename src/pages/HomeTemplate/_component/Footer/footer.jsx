@@ -122,7 +122,7 @@ export default class Footer extends Component {
                     {element.elements.map((nestedElement, index) => {
                       return (
                         <a
-                          className="footer__item"
+                          className="footer__item mb-2 d-block"
                           key={index}
                           href={nestedElement.to}
                         >
