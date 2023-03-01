@@ -59,7 +59,7 @@ export default function Theatre() {
 
                           <div className="row ">
                             {movie.lstLichChieuTheoPhim?.slice(0, 10).map((lichChieu, index) => {
-                              return <NavLink className="col-xl-2 col-4 " key={index} to="/">
+                              return <NavLink className="col-xl-2 col-4 " key={index} to={`/checkout/${lichChieu.maLichChieu}`}>
                                 {moment(lichChieu.ngayChieuGioChieu).format('hh:mmA')}
                               </NavLink>
                             })}

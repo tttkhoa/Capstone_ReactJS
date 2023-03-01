@@ -1,7 +1,9 @@
 .img-carousel {
+  // width: 100%;
+  // aspect-ratio: 16/9;
+  // object-fit: cover;
   width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
+  height: 80vh;
 }
 
 .carousel-indicators {
@@ -31,4 +33,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@include responsive("large-down") {
+  .img-carousel {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    height: 100%;
+  }
 }

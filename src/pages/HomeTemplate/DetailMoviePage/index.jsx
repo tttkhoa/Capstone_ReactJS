@@ -26,7 +26,7 @@ export default function DetailMoviePage() {
       const id = String(i + 1);
       return {
         label: (
-          <img src={cinema.logo} width={50} className="rounded-circle"></img>
+          <img src={cinema.logo} key={i} width={50} className="rounded-circle"></img>
         ),
         key: id,
         children: (
@@ -56,7 +56,7 @@ export default function DetailMoviePage() {
                       <div className="row">
                     {cumRap.lichChieuPhim?.map((lichChieu, index) => {
                       return (
-                        <NavLink to="/" key={index} className="col-xl-6 col-4">
+                        <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className="col-xl-6 col-4">
                           {moment(lichChieu.ngayChieuGioChieu).format("hh:mmA")}
                         </NavLink>
                       );
