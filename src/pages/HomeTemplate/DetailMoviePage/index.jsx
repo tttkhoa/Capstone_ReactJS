@@ -79,7 +79,7 @@ export default function DetailMoviePage() {
   return (
     <div
       style={{ minHeight: "100vh" }}
-      className="container mt-5 text-white text-center"
+      className="container mt-5 text-white"
     >
       <div className="row">
         <div className="col-lg-4 col-md-12 col-12">

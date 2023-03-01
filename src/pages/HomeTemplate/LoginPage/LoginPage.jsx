@@ -193,6 +193,7 @@ export default function LoginPage() {
                 {password ? "Ẩn" : "Hiện"}
               </div>
             </div>
+            </div>
             <input
               style={{ marginTop: "24px" }}
               className="btn btn-success"
