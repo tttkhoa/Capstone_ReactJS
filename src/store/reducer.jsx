@@ -17,7 +17,8 @@ import listUserReducer from "../pages/AdminTemplate/ManageUserPage/ListUser/redu
 import addUserReducer from "../pages/AdminTemplate/ManageUserPage/AddUserPage/duck/reducer";
 import editUserReducer from "../pages/AdminTemplate/ManageUserPage/EditUserPage/duck/reducer";
 import updateUserReducer from "../pages/AdminTemplate/ManageUserPage/EditUserPage/UpdateUser/reducer";
+import deleteUserReducer from "../pages/AdminTemplate/ManageUserPage/DeleteUser/reducer";
 
-const rootReducer = combineReducers({carouselReducer,theatreReducer,listMovieReducer,detailMovieReducer,authReducer,userLoginReducer,seatListReducer,bookTicketReducer,userInfoReducer,registerUserReducer,addMovieReducer,editMovieReducer,updateMovieReducer,deleteMovieReducer,listUserReducer,addUserReducer,editUserReducer,updateUserReducer})
+const rootReducer = combineReducers({carouselReducer,theatreReducer,listMovieReducer,detailMovieReducer,authReducer,userLoginReducer,seatListReducer,bookTicketReducer,userInfoReducer,registerUserReducer,addMovieReducer,editMovieReducer,updateMovieReducer,deleteMovieReducer,listUserReducer,addUserReducer,editUserReducer,updateUserReducer,deleteUserReducer})
 
 export default rootReducer;

@@ -13,7 +13,6 @@ import {
   TreeSelect,
 } from "antd";
 import { useFormik } from "formik";
-import moment from "moment/moment";
 import dayjs from 'dayjs';
 import { useDispatch, useSelector } from "react-redux";
 import { actEditMovie } from "./duck/action";

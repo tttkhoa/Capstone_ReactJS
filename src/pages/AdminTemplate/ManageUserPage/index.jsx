@@ -4,8 +4,7 @@ import { Table ,Input} from "antd";
 import { EditOutlined,DeleteOutlined,CalendarOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { actFetchListUser } from "./ListUser/action";
-
-
+import { actDeleteUser } from "./DeleteUser/action";
 
 export default function ManageUserPage() {
   const dispatch = useDispatch()
@@ -95,8 +94,8 @@ export default function ManageUserPage() {
         render:(text,user) => {return <Fragment>
           <NavLink key={1} style={{fontSize:"25px"}} className="text-success mr-3" to={`/admin/manage-user/edit-user/${user.taiKhoan}`}><EditOutlined/></NavLink>
           <span  key={2} style={{fontSize:"25px",cursor:"pointer"}} className="text-danger mr-3" to="/" onClick={() => {
-            if(window.confirm(`Bạn có muốn xóa phim ${user.taiKhoan} không?`)) {
-             
+            if(window.confirm(`Bạn có muốn xóa ${user.taiKhoan} không?`)) {
+             dispatch(actDeleteUser(user.taiKhoan))
             }
           }}><DeleteOutlined/></span>
         </Fragment>},
