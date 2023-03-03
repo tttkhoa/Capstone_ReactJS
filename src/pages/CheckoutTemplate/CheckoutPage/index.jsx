@@ -252,7 +252,7 @@ function ResultPayment() {
   const renderTicketItem = () => {
     return data?.thongTinDatVe.map((ticket,index) => {
       const seats = first(ticket.danhSachGhe)
-      return  <div key={index} className="col-sm-12 col-md-6 col-lg-4 mb-4"><div className="card text-white card-has-bg click-col">
+      return  <div key={index} className="col-sm-12 col-md-6 col-lg-4 col-xl-6 mb-4"><div className="card text-white card-has-bg click-col">
       <img className="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?" />
       <div className="card-img-overlay d-flex flex-column">
         <div className="card-body">
@@ -296,7 +296,6 @@ function ResultPayment() {
     </div>
     <div className="row">
     {renderTicketItem()}
-
     </div>
   </div>
 

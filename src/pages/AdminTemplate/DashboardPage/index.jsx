@@ -14,7 +14,7 @@ export default function DashboardPage() {
             <div className="card-footer d-flex align-items-center justify-content-between">
               <NavLink
                 className="small text-white stretched-link"
-                to="add-movie"
+                to="manage-movie"
               >
                 Tới Trang Quản lí
               </NavLink>
@@ -30,7 +30,7 @@ export default function DashboardPage() {
             <div className="card-footer d-flex align-items-center justify-content-between">
               <NavLink
                 className="small text-white stretched-link"
-                to="add-user"
+                to="manage-user"
               >
                 Tới Trang Quản lí
               </NavLink>

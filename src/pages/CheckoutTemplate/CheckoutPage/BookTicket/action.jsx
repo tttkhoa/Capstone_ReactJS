@@ -2,6 +2,7 @@ import * as ActionType from "./types"
 import api from "../../../../utils/apiUtil";
 import { actfetchSeatList } from "../duck/action";
 import { AUTO_CHANGE_TAB, SEAT_BOOK_DONE } from "../duck/types";
+import { actFetchUserInfo } from "../UserInfo/action";
 
 
 export const actBookSeat = (thongTinDatVe) => {
@@ -12,8 +13,9 @@ export const actBookSeat = (thongTinDatVe) => {
         .then((result) => {
              dispatch(actBookTicketSuccess(result.data.content))
              dispatch(actfetchSeatList(thongTinDatVe.maLichChieu))
+             dispatch(actFetchUserInfo())
              dispatch({type:SEAT_BOOK_DONE})
-             dispatch({type:AUTO_CHANGE_TAB})
+            //  dispatch({type:AUTO_CHANGE_TAB})
 
         })
         .catch((error) => {
