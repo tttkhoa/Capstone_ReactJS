@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-
-export default class LoginPage extends Component {
+import { connect } from "react-redux";
+import { actUserRegister } from "./duck/action";
+class RegisterPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -180,6 +181,9 @@ export default class LoginPage extends Component {
                 disabled={this.state.logError.length > 0}
                 type="submit"
                 value="Đăng Ký"
+                onClick={() => {
+                  this.props.submitUser()
+                }}
               />
 
               {this.state.logError.length > 0 ? (
@@ -210,3 +214,19 @@ export default class LoginPage extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+   
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitUser: (user) => {
+      dispatch(actUserRegister(user));
+    },
+  };
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(RegisterPage)

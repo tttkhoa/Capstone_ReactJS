@@ -59,7 +59,7 @@ export default function DetailMoviePage() {
                       <div className="row">
                     {cumRap.lichChieuPhim?.map((lichChieu, index) => {
                       return (
-                        <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className="col-xl-6 col-4">
+                        <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className="col-xl-4 col-4">
                           {moment(lichChieu.ngayChieuGioChieu).format("hh:mmA")}
                         </NavLink>
                       );
