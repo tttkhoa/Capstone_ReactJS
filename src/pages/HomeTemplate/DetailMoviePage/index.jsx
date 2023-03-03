@@ -101,7 +101,7 @@ export default function DetailMoviePage() {
             <button className="btn btn-success my-4 mx-2">Yêu Thích</button>
           </div>
         </div>
-        <div className="col-lg-8 col-md-12 col-12">
+        <div className="col-lg-8 col-md-12 col-12 text-dark">
           <p style={{ fontSize: "15px" }} className="mb-2">
             Ngày chiếu: {moment(data?.ngayKhoiChieu).format("DD/MM/YYYY")}
           </p>
