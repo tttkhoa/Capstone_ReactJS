@@ -31,7 +31,7 @@ export default function AuthPage() {
   const [password, setPassword] = useState(false);
 
   if (localStorage.getItem("UserAdmin")) {
-    return <Navigate replace to="/admin/dashboard" />;
+    return <Navigate replace to="/admin" />;
   } else if (localStorage.getItem("User")) {
     alert("Bạn không có quyền truy cập")
     return <Navigate replace to="/" />;
