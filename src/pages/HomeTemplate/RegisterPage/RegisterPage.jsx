@@ -1,22 +1,18 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
-import { actUserRegister } from "./duck/action";
-class RegisterPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showPassword: false,
-      logError: [],
-      account: "",
-      password: "",
-      fullname: "",
-      email: "",
-      phoneNumber: "",
-    };
-  }
 
-  validate = {
+export default function RegisterPage() {
+  const [data, setData] = useState({
+    showPassword: false,
+    logError: [],
+    account: "",
+    password: "",
+    fullname: "",
+    email: "",
+    phoneNumber: "",
+  });
+
+  const validate = {
     forAccount: {
       regex: /^.{6,}$/,
       msgError: "Tài khoản tối thiểu 6 kí tự.",
@@ -35,198 +31,174 @@ class RegisterPage extends Component {
     },
   };
 
-  validateHandle = (isValidate, type) => {
+  const validateHandle = (isValidate, type) => {
     return isValidate
-      ? this.setState({
-          ...this.state,
-          logError: this.state.logError.filter((validated) => {
-            return validated !== this["validate"][type]["msgError"];
+      ? setData({
+          ...data,
+          logError: data.logError.filter((validated) => {
+            return validated !== validate[type]["msgError"];
           }),
         })
-      : this.setState({
-          ...this.state,
-          logError: [
-            ...this.state.logError,
-            this["validate"][type]["msgError"],
-          ],
+      : setData({
+          ...data,
+          logError: [...data.logError, validate[type]["msgError"]],
         });
   };
 
-  handleForm = (e) => {
+  const handleForm = (e) => {
     const { name, value } = e.target;
-    this.setState({
-      ...this.state,
+    setData({
+      ...data,
       [name]: value,
     });
   };
 
-  validateForm = (e) => {
+  const validateForm = (e) => {
     const { name, value } = e.target;
     switch (name) {
       case "username":
-        if (!this.validate.forAccount.regex.test(value)) {
-          return this.validateHandle(false, "forAccount");
+        if (!validate.forAccount.regex.test(value)) {
+          return validateHandle(false, "forAccount");
         } else {
-          return this.validateHandle(true, "forAccount");
+          return validateHandle(true, "forAccount");
         }
         break;
       case "password":
-        if (!this.validate.forPassword.regex.test(value)) {
-          return this.validateHandle(false, "forPassword");
+        if (!validate.forPassword.regex.test(value)) {
+          return validateHandle(false, "forPassword");
         } else {
-          return this.validateHandle(true, "forPassword");
+          return validateHandle(true, "forPassword");
         }
         break;
       case "email":
-        if (!this.validate.forEmail.regex.test(value)) {
-          return this.validateHandle(false, "forEmail");
+        if (!validate.forEmail.regex.test(value)) {
+          return validateHandle(false, "forEmail");
         } else {
-          return this.validateHandle(true, "forEmail");
+          return validateHandle(true, "forEmail");
         }
         break;
       case "phoneNumber":
-        if (!this.validate.forPhone.regex.test(value)) {
-          return this.validateHandle(false, "forPhone");
+        if (!validate.forPhone.regex.test(value)) {
+          return validateHandle(false, "forPhone");
         } else {
-          return this.validateHandle(true, "forPhone");
+          return validateHandle(true, "forPhone");
         }
         break;
       default:
-        this.setState({ ...this.state });
+        setData({ ...data });
         break;
     }
   };
 
-  render() {
-    return (
-      <div className="container my-5">
-        <div className="login row">
-          <div className="col-lg-6 col-md-5 d-none d-md-flex align-items-center justify-content-center">
-            <img
-              src="https://static.vecteezy.com/system/resources/previews/005/879/539/original/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-illustration-with-isolated-people-scene-free-vector.jpg"
-              alt="..."
-              className="img-fluid"
+  return (
+    <div className="container my-5">
+      <div className="login row">
+        <div className="col-lg-6 col-md-5 d-none d-md-flex align-items-center justify-content-center">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/005/879/539/original/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-illustration-with-isolated-people-scene-free-vector.jpg"
+            alt="..."
+            className="img-fluid"
+          />
+        </div>
+        <div className="col-12 col-lg-6 col-md-7 login__main">
+          <h3>Đăng Ký Thành Viên !</h3>
+          <form>
+            <label>Tài khoản</label>
+            <input
+              className="form-control"
+              name="username"
+              placeholder="Tài khoản hoặc Email"
+              onChange={handleForm}
+              autoFocus
+              onBlur={validateForm}
             />
-          </div>
-          <div className="col-12 col-lg-6 col-md-7 login__main">
-            <h3>Đăng Ký Thành Viên !</h3>
-            <form>
-              <label>Tài khoản</label>
+            <label>Mật Khẩu</label>
+            <div className="position-relative">
               <input
                 className="form-control"
-                name="username"
-                placeholder="Tài khoản hoặc Email"
-                onChange={this.handleForm}
-                autoFocus
-                onBlur={this.validateForm}
+                name="password"
+                type={data.showPassword ? "text" : "password"}
+                placeholder="Mật khẩu"
+                onChange={handleForm}
+                onBlur={validateForm}
               />
-              <label>Mật Khẩu</label>
-              <div className="position-relative">
-                <input
-                  className="form-control"
-                  name="password"
-                  type={this.state.showPassword ? "text" : "password"}
-                  placeholder="Mật khẩu"
-                  onChange={this.handleForm}
-                  onBlur={this.validateForm}
-                />
-                <div
-                  onClick={() =>
-                    this.setState({
-                      showPassword: !this.state.showPassword,
-                    })
-                  }
-                  className="position-absolute"
-                  style={{
-                    top: "1px",
-                    right: "1px",
-                    bottom: "1px",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    padding: "6px 10px",
-                    background: "#425fec",
-                  }}
-                >
-                  {this.state.showPassword ? "Ẩn" : "Hiện"}
-                </div>
-              </div>
-              <label>Họ và tên của bạn</label>
-              <input
-                className="form-control"
-                name="fullname"
-                placeholder="Họ và tên của bạn"
-                onChange={this.handleForm}
-                onBlur={this.validateForm}
-              />
-              <label>Email</label>
-              <input
-                className="form-control"
-                name="email"
-                placeholder="Email của bạn"
-                onChange={this.handleForm}
-                onBlur={this.validateForm}
-              />
-              <label>Số điện thoại</label>
-              <input
-                className="form-control"
-                name="phoneNumber"
-                placeholder="Số điện thoại"
-                onChange={this.handleForm}
-                onBlur={this.validateForm}
-              />
-
-              <input
-                style={{ marginTop: "24px" }}
-                className="btn btn-success"
-                disabled={this.state.logError.length > 0}
-                type="submit"
-                value="Đăng Ký"
-                onClick={() => {
-                  this.props.submitUser()
+              <div
+                onClick={() =>
+                  setData({
+                    showPassword: !data.showPassword,
+                  })
+                }
+                className="position-absolute"
+                style={{
+                  top: "1px",
+                  right: "1px",
+                  bottom: "1px",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                  padding: "6px 10px",
+                  background: "#425fec",
                 }}
-              />
-
-              {this.state.logError.length > 0 ? (
-                <ul className="alert alert-danger mt-4">
-                  {[...new Set(this.state.logError)].map((error, index) => {
-                    return <li key={index}>{error}</li>;
-                  })}
-                </ul>
-              ) : (
-                ""
-              )}
-
-              <div className="mt-4">
-                <p className="text-right mb-3">
-                  Đã có tài khoản,{" "}
-                  <NavLink
-                    to="/login"
-                    style={{ color: "#fff", fontWeight: "bold" }}
-                  >
-                    Đăng nhập?
-                  </NavLink>
-                </p>
+              >
+                {data.showPassword ? "Ẩn" : "Hiện"}
               </div>
-            </form>
-          </div>
+            </div>
+            <label>Họ và tên của bạn</label>
+            <input
+              className="form-control"
+              name="fullname"
+              placeholder="Họ và tên của bạn"
+              onChange={handleForm}
+              onBlur={validateForm}
+            />
+            <label>Email</label>
+            <input
+              className="form-control"
+              name="email"
+              placeholder="Email của bạn"
+              onChange={handleForm}
+              onBlur={validateForm}
+            />
+            <label>Số điện thoại</label>
+            <input
+              className="form-control"
+              name="phoneNumber"
+              placeholder="Số điện thoại"
+              onChange={handleForm}
+              onBlur={validateForm}
+            />
+
+            <input
+              style={{ marginTop: "24px" }}
+              className="btn btn-success"
+              disabled={data.logError.length > 0}
+              type="submit"
+              value="Đăng Ký"
+            />
+
+            {data.logError.length > 0 ? (
+              <ul className="alert alert-danger mt-4">
+                {[...new Set(data.logError)].map((error, index) => {
+                  return <li key={index}>{error}</li>;
+                })}
+              </ul>
+            ) : (
+              ""
+            )}
+
+            <div className="mt-4">
+              <p className="text-right mb-3">
+                Đã có tài khoản,{" "}
+                <NavLink
+                  to="/login"
+                  style={{ color: "#fff", fontWeight: "bold" }}
+                >
+                  Đăng nhập?
+                </NavLink>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-const mapStateToProps = (state) => {
-  return {
-   
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    submitUser: (user) => {
-      dispatch(actUserRegister(user));
-    },
-  };
-};
-
-export default connect(mapStateToProps,mapDispatchToProps)(RegisterPage)

@@ -21,6 +21,12 @@ const routes = [
         ),
       },
       {
+        path: "my-account",
+        element: lazy(() =>
+          import("../pages/HomeTemplate/AccountPage/AccountPage")
+        ),
+      },
+      {
         path: "register",
         element: lazy(() =>
           import("../pages/HomeTemplate/RegisterPage/RegisterPage")
