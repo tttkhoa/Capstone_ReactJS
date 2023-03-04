@@ -31,7 +31,7 @@ export default function LoginPage() {
   };
 
   if (localStorage.getItem("UserAdmin")){
-    return <Navigate replace to="/admin/dashboard" /> 
+    return <Navigate replace to="/admin/" /> 
   } else if(localStorage.getItem("User")) {
     return <Navigate replace to="/" /> 
   }

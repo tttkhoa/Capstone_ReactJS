@@ -21,7 +21,7 @@ export const actAuthLogin = (user,navigate) => {
 
                 dispatch(actAuthSuccess(result.data.content))
     
-                navigate("/admin/dashboard",{replace:true})
+                navigate("/admin",{replace:true})
             } else if (result.data.content.maLoaiNguoiDung === "KhachHang"){
                 localStorage.setItem("User",JSON.stringify(result.data.content))
 
@@ -39,13 +39,6 @@ export const actAuthLogin = (user,navigate) => {
                     }
                 })
             }
-
-    
-            // localStorage.setItem("UserAdmin",JSON.stringify(result.data.content))
-
-            // dispatch(actAuthSuccess(result.data.content))
-
-            // navigate("/admin/dashboard",{replace:true})
         })
 
 

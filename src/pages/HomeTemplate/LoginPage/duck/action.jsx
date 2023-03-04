@@ -18,7 +18,6 @@ export const actUserLogin = (user,navigate) => {
             } else if (result.data.content.maLoaiNguoiDung === "QuanTri")  {
                 localStorage.setItem("UserAdmin",JSON.stringify(result.data.content))
                 dispatch(actAuthSuccess(result.data.content))
-                // navigate("/admin/dashboard",{replace:true})
                 navigate(-1)
             }
             else {
