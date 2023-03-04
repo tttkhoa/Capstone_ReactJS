@@ -231,7 +231,7 @@ export default function header() {
                       <i className="fa-regular fa-envelope"></i>
                       <a href="#">demo@company.com</a>
                     </li>
-                    <div className="account m-0">
+                    {/* <div className="account m-0">
                       <i className="fa-regular fa-user"></i>
                       <label
                         htmlFor="account-checkbox"
@@ -262,7 +262,7 @@ export default function header() {
                           </ul>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </ul>
                 </div>
               </div>

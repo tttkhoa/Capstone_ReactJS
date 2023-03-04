@@ -1,10 +1,19 @@
 import * as ActionType from "./types"
 import api from "../../../../utils/apiUtil";
 
-export const actFetchListMovie = () => {
+export const actFetchListMovie = (tenPhim="") => {
     return (dispatch) => {
         dispatch(actListMovieRequest());
 
+        if(tenPhim.trim() !== ''){
+            api.get(`QuanLyPhim/LayDanhSachPhim?maNhom=GP03&tenPhim=${tenPhim}`)
+            .then((result) => {
+                dispatch(actListMovieSuccess(result.data.content))
+            })
+            .catch((error) => {
+                dispatch(actListMovieFail(error))
+            })
+        } else {
         api.get("QuanLyPhim/LayDanhSachPhim?maNhom=GP03")
         .then((result) => {
             dispatch(actListMovieSuccess(result.data.content))
@@ -12,6 +21,8 @@ export const actFetchListMovie = () => {
         .catch((error) => {
             dispatch(actListMovieFail(error))
         })
+        }
+
     }
 }
 

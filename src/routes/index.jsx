@@ -51,35 +51,41 @@ const routes = [
         element: lazy(() => import("../pages/AdminTemplate/DashboardPage")),
       },
       {
-        path: "add-user",
-        element: lazy(() => import("../pages/AdminTemplate/AddUserPage")),
+        path: "manage-user",
+        element: lazy(() => import("../pages/AdminTemplate/ManageUserPage")),
       },
       {
-        path: "add-user/add",
+        path: "manage-user/add-user",
         element: lazy(() =>
-          import("../pages/AdminTemplate/AddUserPage/AddUser.jsx")
+          import("../pages/AdminTemplate/ManageUserPage/AddUserPage/AddUser.jsx")
         ),
       },
       {
-        path: "add-user/edit/:id",
+        path: "manage-user/edit-user/:id",
         element: lazy(() =>
-          import("../pages/AdminTemplate/AddUserPage/EditUser.jsx")
+          import("../pages/AdminTemplate/ManageUserPage/EditUserPage/EditUser.jsx")
         ),
       },
       {
-        path: "add-movie",
-        element: lazy(() => import("../pages/AdminTemplate/AddMoviePage")),
+        path: "manage-movie",
+        element: lazy(() => import("../pages/AdminTemplate/MoviePage/ManageMoviePage")),
       },
       {
-        path: "add-movie/add",
+        path: "manage-movie/add-movie",
         element: lazy(() =>
-          import("../pages/AdminTemplate/AddMoviePage/AddMovie.jsx")
+          import("../pages/AdminTemplate/MoviePage/AddMoviePage/AddMovie")
         ),
       },
       {
-        path: "add-movie/edit/:id",
+        path: "manage-movie/edit-movie/:id",
         element: lazy(() =>
-          import("../pages/AdminTemplate/AddMoviePage/EditMovie.jsx")
+          import("../pages/AdminTemplate/MoviePage/EditMoviePage/EditMovie.jsx")
+        ),
+      },
+      {
+        path: "manage-movie/showtime/:id/:tenPhim",
+        element: lazy(() =>
+          import("../pages/AdminTemplate/MoviePage/ShowtimePage/index")
         ),
       },
     ],

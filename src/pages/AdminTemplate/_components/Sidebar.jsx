@@ -12,13 +12,13 @@ export default class Sidebar extends Component {
           <div className="sb-sidenav-menu">
             <div className="nav">
               <div className="sb-sidenav-menu-heading">Quản Trị</div>
-              <NavLink className="nav-link" to="add-movie">
+              <NavLink className="nav-link" to="manage-movie">
                 <div className="sb-nav-link-icon">
                   <i className="fas fa-tachometer-alt" />
                 </div>
                 Quản lí phim
               </NavLink>
-              <NavLink className="nav-link" to="add-user">
+              <NavLink className="nav-link" to="manage-user">
                 <div className="sb-nav-link-icon">
                   <i className="fas fa-tachometer-alt" />
                 </div>

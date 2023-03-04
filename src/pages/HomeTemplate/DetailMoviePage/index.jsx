@@ -59,7 +59,7 @@ export default function DetailMoviePage() {
                       <div className="row">
                     {cumRap.lichChieuPhim?.map((lichChieu, index) => {
                       return (
-                        <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className="col-xl-6 col-4">
+                        <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className="col-xl-4 col-4">
                           {moment(lichChieu.ngayChieuGioChieu).format("hh:mmA")}
                         </NavLink>
                       );
@@ -79,7 +79,7 @@ export default function DetailMoviePage() {
   return (
     <div
       style={{ minHeight: "100vh" }}
-      className="container mt-5 text-white text-center"
+      className="container mt-5 text-white"
     >
       <div className="row">
         <div className="col-lg-4 col-md-12 col-12">
@@ -101,7 +101,7 @@ export default function DetailMoviePage() {
             <button className="btn btn-success my-4 mx-2">Yêu Thích</button>
           </div>
         </div>
-        <div className="col-lg-8 col-md-12 col-12">
+        <div className="col-lg-8 col-md-12 col-12 text-dark">
           <p style={{ fontSize: "15px" }} className="mb-2">
             Ngày chiếu: {moment(data?.ngayKhoiChieu).format("DD/MM/YYYY")}
           </p>
